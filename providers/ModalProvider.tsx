@@ -1,11 +1,17 @@
 'use client';
 
-import AuthModal from '@/components/AuthModal';
-import UploadModal from '@/components/UploadModal';
-
 import { useEffect, useState } from 'react';
 
-const ModalProvider = () => {
+import AuthModal from '@/components/AuthModal';
+import UploadModal from '@/components/UploadModal';
+import SubscribeModal from '@/components/SubscribeModal';
+import { ProductWithPrice } from '@/types';
+
+interface ModalProviderProps {
+  products: ProductWithPrice[];
+}
+
+const ModalProvider: React.FC<ModalProviderProps> = ({ products }) => {
   const [isMounted, setIsMounted] = useState(false);
 
   // This useEffect can ensure none of modals is seen or rendered during SSR
@@ -21,6 +27,7 @@ const ModalProvider = () => {
     <>
       <AuthModal />
       <UploadModal />
+      <SubscribeModal products={products} />
     </>
   );
 };

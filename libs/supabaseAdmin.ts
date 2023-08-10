@@ -69,8 +69,8 @@ const createOrRetrieveCustomer = async ({
     .single();
 
   if (error || !data?.stripe_customer_id) {
-    const customerData: { metadate: { supabaseUUID: string }; email?: string } = {
-      metadate: {
+    const customerData: { metadata: { supabaseUUID: string }; email?: string } = {
+      metadata: {
         supabaseUUID: uuid
       }
     };
