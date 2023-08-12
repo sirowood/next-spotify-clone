@@ -71,6 +71,12 @@ const SubscirbeModal: React.FC<SubscirbeModalProps> = ({ products }) => {
   if (products.length) {
     content = (
       <div>
+        <div className="flex flex-col items-center text-sm pb-2 gap-2">
+          <p>Stripe Test Card: 4242 4242 4242 4242</p>
+          <p>Stripe Test Expiry: 5/55 (anything in the future)</p>
+          <p>Stripe Test CVC: 555 (any 3 digit number)</p>
+        </div>
+
         {products.map((product) => {
           if (!product.prices?.length) {
             return <div key={product.id}>No Prices available</div>;

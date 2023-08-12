@@ -36,13 +36,13 @@ const SongItem: React.FC<SongItemProps> = ({ data, onClick }) => {
     >
       <div
         className="
-        relative
-        aspect-square
-        w-full
-        h-full
-        rounded-md
-        overflow-hidden
-      "
+          relative
+          aspect-square
+          w-full
+          h-full
+          rounded-md
+          overflow-hidden
+        "
       >
         <Image
           className="
@@ -79,10 +79,10 @@ const SongItem: React.FC<SongItemProps> = ({ data, onClick }) => {
       </div>
       <div
         className="
-        absolute
-        bottom-24
-        right-5
-      "
+          absolute
+          bottom-24
+          right-5
+        "
       >
         <PlayButton />
       </div>

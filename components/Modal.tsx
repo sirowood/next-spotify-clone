@@ -25,52 +25,52 @@ const Modal: React.FC<ModalProps> = ({
       <Dialog.Portal>
         <Dialog.Overlay
           className="
-          bg-netural-900/90
-          backdrop-blur-sm
-          fixed
-          inset-0
+            bg-netural-900/90
+            backdrop-blur-sm
+            fixed
+            inset-0
           "
         />
         <Dialog.Content
           className="
-          fixed
-          drop-shadow-md
-          border
-          border-neutral-700
-          top-1/2
-          left-1/2
-          max-h-full
-          h-full
-          md:h-auto
-          md:max-h-[85vh]
-          w-full
-          md:w-[90vw]
-          md:max-w-[450px]
-          -translate-x-1/2
-          -translate-y-1/2
-          rounded-md
-          bg-neutral-800
-          p-[25px]
-          focus:outline-none
+            fixed
+            drop-shadow-md
+            border
+            border-neutral-700
+            top-1/2
+            left-1/2
+            max-h-full
+            h-full
+            md:h-auto
+            md:max-h-[85vh]
+            w-full
+            md:w-[90vw]
+            md:max-w-[450px]
+            -translate-x-1/2
+            -translate-y-1/2
+            rounded-md
+            bg-neutral-800
+            p-[25px]
+            focus:outline-none
           "
         >
           <Dialog.Title
             className="
-            text-xl
-            text-center
-            text-bold
-            mb-4
-          "
+              text-xl
+              text-center
+              text-bold
+              mb-4
+            "
           >
             {title}
           </Dialog.Title>
           <Dialog.Description
             className="
-            mb-5
-            text-sm
-            leading-normal
-            text-center
-          "
+              mb-5
+              text-sm
+              leading-normal
+              text-center
+            "
           >
             {description}
           </Dialog.Description>
