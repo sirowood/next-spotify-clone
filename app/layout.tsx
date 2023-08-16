@@ -1,14 +1,28 @@
-import './globals.css';
-import { Figtree } from 'next/font/google';
-import Sidebar from '@/components/Sidebar';
+/*
+  This file is the entry point of the App.
+  It renders components inside the HTML <body> element.
+  In Next.js 13, it reads page.tsx in each folder as children and pass it to this RootLayout component
+  
+  It seems make no sense to name the <Sidebar>, the name and actual content is not aligned
+  -> renamed to PageContainer
+  And it is not reasonable to place the PageContainer to the @/components
+  -> move to ./app/_components
+*/
+
 import type { Metadata } from 'next';
+import { Figtree } from 'next/font/google';
+
+import Player from '@/components/Player';
+import PageContainer from './_components/PageContainer';
+
 import SupabaseProvider from '@/providers/SupabaseProvider';
 import UserProvider from '@/providers/UserProvider';
 import ModalProvider from '@/providers/ModalProvider';
 import ToasterProvider from '@/providers/ToasterProvider';
-import getSongsByUserId from '@/actions/getSongsByUserId';
+
 import getActiveProductsWithPrices from '@/actions/getActiveProductsWithPrices';
-import Player from '@/components/Player';
+
+import './globals.css';
 
 const font = Figtree({ subsets: ['latin'] });
 
@@ -23,12 +37,11 @@ export const metadata: Metadata = {
 
 export const revalidate = 0;
 
-export default async function RootLayout({
-  children,
-}: {
+interface RootLayoutProps {
   children: React.ReactNode;
-}) {
-  const userSongs = await getSongsByUserId();
+}
+
+export default async function RootLayout({ children }: RootLayoutProps) {
   const products = await getActiveProductsWithPrices();
 
   return (
@@ -38,7 +51,7 @@ export default async function RootLayout({
         <SupabaseProvider>
           <UserProvider>
             <ModalProvider products={products} />
-            <Sidebar songs={userSongs}>{children}</Sidebar>
+            <PageContainer>{children}</PageContainer>
             <Player />
           </UserProvider>
         </SupabaseProvider>
